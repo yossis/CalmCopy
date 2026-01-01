@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Lemonade AI Content",
+  title: "CalmCopy",
   description: "Internal AI Content Generation Tool",
 };
 
