@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+}
+
+.card {
+    background: var(--lemonade-white);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 500px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--lemonade-pink);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--lemonade-text-light);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--lemonade-text);
+    margin-bottom: 0.5rem;
+}
+
+.input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: monospace;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.input:focus {
+    border-color: var(--lemonade-pink);
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: var(--lemonade-text-light);
+    margin-top: 0.5rem;
+}
+
+.toggleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle {
+    width: 50px;
+    height: 28px;
+    background-color: #e0e0e0;
+    border-radius: 14px;
+    position: relative;
+    transition: background-color 0.2s;
+    padding: 2px;
+}
+
+.toggle.active {
+    background-color: var(--lemonade-pink);
+}
+
+.knob {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.toggle.active .knob {
+    transform: translateX(22px);
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.button {
+    background-color: var(--lemonade-pink);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 131, 0.3);
+}

@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lemonade AI Content Tool (MVP)
 
-## Getting Started
+An internal AI-powered content generation tool designed for Lemonade's team. It guides users through a context-setting wizard to generate on-brand, high-quality content using AI.
 
-First, run the development server:
+## 🎯 Product Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This tool replaces complex prompt engineering with a simple, human-centric workflow:
+1.  **Login**: Secure entry (MVP: `demo` / `demo`).
+2.  **Settings**: Configure OpenAI API Key or use "Mock Mode" for testing.
+3.  **Wizard**: A 3-step flow to define **Segment**, **Tone**, and **Audience**.
+4.  **Chat**: An interactive interface to generate content based on the defined context.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 How to Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
 
-## Learn More
+3.  **Open in Browser**:
+    Navigate to [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+4.  **Login**:
+    -   Username: `demo`
+    -   Password: `demo`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5.  **Configure AI**:
+    -   Go to **Settings** (if not redirected automatically, or via URL `/settings`).
+    -   Enter your OpenAI API Key for real generation.
+    -   Or leave it empty to use **Mock Mode** (simulated responses).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ System Design
 
-## Deploy on Vercel
+### Architecture
+-   **Framework**: Next.js 14 (App Router) for full-stack capabilities.
+-   **Styling**: Vanilla CSS Modules with Global Variables for Lemonade branding.
+-   **State Management**: React Context (`SessionContext`, `SettingsContext`) for cross-component state.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Key Components
+-   **`Wizard`**: Orchestrates the progressive disclosure of context gathering.
+-   **`ChatInterface`**: Handles the user-AI interaction loop.
+-   **`API Route` (`/api/generate`)**:
+    -   Acts as a secure gateway to OpenAI.
+    -   Injects "System Prompts" to enforce Lemonade's brand voice.
+    -   Handles "Mock Mode" logic for testing without costs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Security
+-   API Keys are stored in the user's browser (`localStorage`) for the MVP, ensuring they are never saved to a backend database.
+-   The API route proxies requests, so the key is never exposed in network requests to OpenAI from the client directly (if we were using a server-side key, but here we pass it securely).
+
+## 🎨 Brand Alignment
+-   **Colors**: Lemonade Pink (#FF0083), Dark Gray (#2D2D2D), and White.
+-   **Typography**: Clean sans-serif (System UI).
+-   **Tone**: Friendly, clear, and human.
+
+## 📦 Deliverables
+-   [x] Working MVP
+-   [x] Clean, readable code
+-   [x] Implementation Plan
+-   [x] README

@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+}
+
+.progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: var(--lemonade-pink);
+    transition: width 0.5s ease;
+}
+
+.card {
+    background: var(--lemonade-white);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stepLabel {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--lemonade-text-light);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.question {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--lemonade-pink);
+    margin-bottom: 2.5rem;
+}
+
+.optionsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.optionButton {
+    background-color: white;
+    border: 2px solid #eee;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--lemonade-text);
+    transition: all 0.2s ease;
+}
+
+.optionButton:hover {
+    border-color: var(--lemonade-pink);
+    color: var(--lemonade-pink);
+    background-color: rgba(255, 0, 131, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 600px) {
+    .optionsGrid {
+        grid-template-columns: 1fr;
+    }
+}

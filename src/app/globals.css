@@ -1,27 +1,25 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Lemonade Brand Colors */
+  --lemonade-pink: #FF0083;
+  --lemonade-black: #2D2D2D;
+  --lemonade-gray: #F4F4F4;
+  --lemonade-white: #FFFFFF;
+  --lemonade-text: #333333;
+  --lemonade-text-light: #666666;
+  
+  /* Functional Colors */
+  --bg-primary: var(--lemonade-white);
+  --bg-secondary: var(--lemonade-gray);
+  --accent: var(--lemonade-pink);
+  
+  /* Spacing & Layout */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --container-width: 800px;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -30,13 +28,22 @@ body {
   margin: 0;
 }
 
+body {
+  font-family: var(--font-family);
+  color: var(--lemonade-text);
+  background: var(--bg-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
 }

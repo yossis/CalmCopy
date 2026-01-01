@@ -1,0 +1,89 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--lemonade-white);
+    border-bottom: 1px solid #eee;
+}
+
+.logo a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--lemonade-pink);
+    text-decoration: none;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--lemonade-pink);
+}
+
+.brandLink {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.brandName {
+    color: var(--lemonade-pink);
+    font-size: 1.2rem;
+}
+
+.brandSlogan {
+    font-size: 0.65rem;
+    color: #999;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.links a:hover,
+.links a.active {
+    color: var(--lemonade-pink);
+}
+
+.userProfile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid #eee;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background-color: var(--lemonade-pink);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.logout {
+    color: #999 !important;
+    font-size: 0.85rem !important;
+}
+
+.logout:hover {
+    color: #666 !important;
+}
