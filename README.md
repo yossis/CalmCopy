@@ -1,14 +1,15 @@
-# Lemonade AI Content Tool (MVP)
+# CalmCopy
 
-An internal AI-powered content generation tool designed for Lemonade's team. It guides users through a context-setting wizard to generate on-brand, high-quality content using AI.
+**CalmCopy** is an internal AI-powered content generation tool designed for Lemonade's team. It guides users through a context-setting wizard to generate on-brand, high-quality content using **Google Gemini**.
 
 ## 🎯 Product Overview
 
 This tool replaces complex prompt engineering with a simple, human-centric workflow:
 1.  **Login**: Secure entry (MVP: `demo` / `demo`).
-2.  **Settings**: Configure OpenAI API Key or use "Mock Mode" for testing.
+2.  **Settings**: Configure **Gemini API Key** or use "Mock Mode" for testing.
 3.  **Wizard**: A 3-step flow to define **Segment**, **Tone**, and **Audience**.
-4.  **Chat**: An interactive interface to generate content based on the defined context.
+4.  **Chat**: An interactive interface with dynamic greetings based on your context.
+5.  **Action**: A "I'm happy!" flow to distribute content to the right channels.
 
 ## 🚀 How to Run
 
@@ -17,49 +18,44 @@ This tool replaces complex prompt engineering with a simple, human-centric workf
     npm install
     ```
 
-2.  **Run Development Server**:
+2.  **Configure Environment**:
+    Create a `.env.local` file in the root directory:
+    ```bash
+    GEMINI_API_KEY=your_google_api_key
+    ```
+    *(Get a key from [Google AI Studio](https://aistudio.google.com/app/apikey))*
+
+3.  **Run Development Server**:
     ```bash
     npm run dev
     ```
 
-3.  **Open in Browser**:
+4.  **Open in Browser**:
     Navigate to [http://localhost:3000](http://localhost:3000).
 
-4.  **Login**:
+5.  **Login**:
     -   Username: `demo`
     -   Password: `demo`
 
-5.  **Configure AI**:
-    -   Go to **Settings** (if not redirected automatically, or via URL `/settings`).
-    -   Enter your OpenAI API Key for real generation.
-    -   Or leave it empty to use **Mock Mode** (simulated responses).
+## ✨ Key Features
+
+*   **Context Wizard**: Tailor content for *Internal Comms*, *PR*, *Customer Emails*, *Marketing Copy*, or *Product Micro-copy*.
+*   **Dynamic Greetings**: The AI greets you with specific advice based on your selected segment.
+*   **Context Editor**: Edit your choices directly in the chat without losing your place.
+*   **Action Modal**: Click **"I'm happy!"** to see suggested channels (Slack, LinkedIn, etc.) and simulate sending with a delightful lemon spinner.
+*   **Gemini Integration**: Powered by Google's `gemini-1.5-flash` (via `gemini-flash-latest` alias) for fast, high-quality responses.
 
 ## 🏗️ System Design
 
 ### Architecture
--   **Framework**: Next.js 14 (App Router) for full-stack capabilities.
+-   **Framework**: Next.js 14 (App Router).
 -   **Styling**: Vanilla CSS Modules with Global Variables for Lemonade branding.
--   **State Management**: React Context (`SessionContext`, `SettingsContext`) for cross-component state.
-
-### Key Components
--   **`Wizard`**: Orchestrates the progressive disclosure of context gathering.
--   **`ChatInterface`**: Handles the user-AI interaction loop.
--   **`API Route` (`/api/generate`)**:
-    -   Acts as a secure gateway to OpenAI.
-    -   Injects "System Prompts" to enforce Lemonade's brand voice.
-    -   Handles "Mock Mode" logic for testing without costs.
+-   **AI Provider**: Google Generative AI SDK.
 
 ### Security
--   API Keys are stored in the user's browser (`localStorage`) for the MVP, ensuring they are never saved to a backend database.
--   The API route proxies requests, so the key is never exposed in network requests to OpenAI from the client directly (if we were using a server-side key, but here we pass it securely).
+-   API Keys are handled securely via server-side environment variables (`.env.local`) or client-side settings (localStorage fallback).
+-   No sensitive data is stored in a backend database for this MVP.
 
 ## 🎨 Brand Alignment
 -   **Colors**: Lemonade Pink (#FF0083), Dark Gray (#2D2D2D), and White.
--   **Typography**: Clean sans-serif (System UI).
 -   **Tone**: Friendly, clear, and human.
-
-## 📦 Deliverables
--   [x] Working MVP
--   [x] Clean, readable code
--   [x] Implementation Plan
--   [x] README
